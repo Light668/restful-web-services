@@ -2,13 +2,12 @@ package com.light668.restfulwebservices.helloworld.services;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.light668.restfulwebservices.helloworld.model.User;
-
-import javassist.NotFoundException;
 
 @Service
 public class UserDaoService {
@@ -36,12 +35,24 @@ public class UserDaoService {
 		return user;
 	}
 
-	public User findOne(int id) throws NotFoundException {
-			for (User user : users) {
-				if (user.getId() == id) {
-					return user;
-				}
+	public User findOne(int id) {
+		for (User user : users) {
+			if (user.getId() == id) {
+				return user;
 			}
-			throw new NotFoundException("User  with id: " + id + " not found.");
+		}
+		return null;
+	}
+
+	public User deleteById(int id) {
+		Iterator<User> iterator = users.iterator();
+		while (iterator.hasNext()) {
+			User user = iterator.next();
+			if (user.getId() == id) {
+				iterator.remove();
+				return user;
+			}
+		}
+		return null;
 	}
 }

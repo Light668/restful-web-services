@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.light668.restfulwebservices.model.HelloWorldBean;
+import com.light668.restfulwebservices.helloworld.model.HelloWorldBean;
 
 @RestController
 public class HelloWorldController {

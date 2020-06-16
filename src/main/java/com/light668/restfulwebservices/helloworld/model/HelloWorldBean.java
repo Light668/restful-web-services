@@ -1,4 +1,4 @@
-package com.light668.restfulwebservices.model;
+package com.light668.restfulwebservices.helloworld.model;
 
 public class HelloWorldBean {
 	
