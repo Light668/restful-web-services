@@ -15,11 +15,7 @@ public class PostDaoService {
 
 	private static int postsCount = 3;
 
-	static {
-		posts.add(new Post(1, "text1", new Date()));
-		posts.add(new Post(2, "text2", new Date()));
-		posts.add(new Post(3, "text3", new Date()));
-	}
+	
 
 	public List<Post> findAll() {
 		return posts;

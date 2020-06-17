@@ -1,14 +1,25 @@
 package com.light668.restfulwebservices.helloworld.model;
 
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class Post {
 	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	private String text;
 	
-	private Date creationDate;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JsonIgnore
+	private User user;
 
 	public Integer getId() {
 		return id;
@@ -26,24 +37,31 @@ public class Post {
 		this.text = text;
 	}
 
-	public Date getCreationDate() {
-		return creationDate;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Post(Integer id, String text, Date creationDate) {
+	public Post(Integer id, String text, User user) {
 		super();
 		this.id = id;
 		this.text = text;
-		this.creationDate = creationDate;
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", text=" + text + ", creationDate=" + creationDate + "]";
+		return "Post [id=" + id + ", text=" + text + ", user=" + user + "]";
+	}
+
+	public Post() {
+		
 	}
 	
+	
 }
+
+	
